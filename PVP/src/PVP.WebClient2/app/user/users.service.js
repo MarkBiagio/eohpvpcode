@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    function UsersService() {
+    function UsersService(UsersFactory) {
         var vm = this;
 
         vm.users = [];
@@ -26,6 +26,6 @@
 
     angular.module('pvpdemo').service('UsersService', UsersService);
 
-    //IndexController.$inject = [];
+    UsersService.$inject = ['UsersFactory'];
 
 }());
