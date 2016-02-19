@@ -1,0 +1,22 @@
+﻿<div>
+    <p>
+        user list (click to view)
+
+    </p>
+   
+    <div ng-repeat="u in vm.users">
+        <p>
+            <div ng-click="vm.onUserClick(u)">
+                {{u}}
+            </div>
+        </p>
+    </div>
+    
+    
+
+    <p>
+        <a href="#/">go home</a>
+    </p>
+    
+
+</div>
