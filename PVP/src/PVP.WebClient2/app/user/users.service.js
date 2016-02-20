@@ -9,8 +9,13 @@
 
         function getUsers() {
             if (vm.users.length === 0) {
-                vm.users.push({ UserId: 1, LoginName: 'm@b.co.za', Name: 'abc', IsActive: true, Roles: [{ RoleId: 1, Description: 'User' }, { RoleId: 2, Description: 'Administrator' }] });
-                vm.users.push({ UserId: 2, LoginName: 'z@b.co.za', Name: 'xyz', IsActive: false, Roles: [{ RoleId: 2, Description: 'Administrator' }] });
+
+                UsersFactory.getUsers()
+                    .then(function (data) {
+                        vm.users.push.apply(vm.users, data);
+                    });
+                //vm.users.push({ UserId: 1, LoginName: 'm@b.co.za', Name: 'abc', IsActive: true, Roles: [{ RoleId: 1, Description: 'User' }, { RoleId: 2, Description: 'Administrator' }] });
+                //vm.users.push({ UserId: 2, LoginName: 'z@b.co.za', Name: 'xyz', IsActive: false, Roles: [{ RoleId: 2, Description: 'Administrator' }] });
             }
         }
 

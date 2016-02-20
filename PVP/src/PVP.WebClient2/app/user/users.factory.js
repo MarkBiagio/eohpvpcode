@@ -1,6 +1,8 @@
 ﻿(function () {
     "use strict";
 
+    var baseUrl = "/api";
+   
     function UsersFactory($q, $http) {
         
         var getUsers = function () {
@@ -16,7 +18,7 @@
                 deferred.reject(err);
             };
 
-            $http.get(baseUrl + moduleUrl + '/api/clients').then(getDataComplete, getDataError);
+            $http.get(baseUrl + '/users').then(getDataComplete, getDataError);
 
             return deferred.promise;
         };
