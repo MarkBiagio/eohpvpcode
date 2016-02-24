@@ -1,17 +1,15 @@
 ﻿(function () {
     "use strict";
 
-    function UsersController(UsersService, $location) {
+    function UsersController(UsersFactory, $location, userInfo) {
         var vm = this;
 
         function viewUser(user) {
-            UsersService.setUser(user);
-            $location.path('/user');
+            $location.path('/user/' + user.id);
         }
 
         function init() {
-            vm.users = UsersService.users;
-            UsersService.getUsers();
+            vm.users = UsersFactory.getUsers();
         }
 
         init();
@@ -21,6 +19,6 @@
 
     angular.module('pvpdemo').controller('UsersController', UsersController);
 
-    UsersController.$inject = ['UsersService', '$location'];
+    UsersController.$inject = ['UsersFactory', '$location'];
 
 }());

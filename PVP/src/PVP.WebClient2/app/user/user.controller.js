@@ -1,21 +1,18 @@
 ﻿(function () {
     "use strict";
 
-    function UserController(UsersService) {
+    function UserController(UsersFactory, $routeParams) {
         var vm = this;
-        vm.user = {};
 
         function init() {
-
-            vm.user = UsersService.currentUser;
+            vm.user = UsersFactory.getUser($routeParams.id);
         }
 
         init();
-
     }
 
     angular.module('pvpdemo').controller('UserController', UserController);
 
-    UserController.$inject = ['UsersService'];
+    UserController.$inject = ['UsersFactory', '$routeParams'];
 
 }());

@@ -1,9 +1,5 @@
 ﻿using PVP.DomainModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using PVP.DAL.DBModel;
 using System.Data.SqlClient;
 
 namespace PVP.DAL
@@ -20,9 +16,9 @@ namespace PVP.DAL
 
         }
 
-        public List<tbUser> GetUsers()
+        public List<User> GetUsers()
         {
-            List<tbUser> tbUsers = new List<tbUser>();
+            List<User> users = new List<User>();
 
             using (SqlConnection cnn =  new SqlConnection(CONNECTION_STRING))
             {
@@ -36,34 +32,28 @@ namespace PVP.DAL
                 {
                     while (reader.Read())
                     {
-                        tbUsers.Add(new tbUser()
+                        users.Add(new User()
                         {
-                            UserId = reader.GetInt32(0),
+                            Id = reader.GetInt32(0),
                             LoginName = reader.GetString(1),
                             Name = reader.GetString(2),
                             IsActive = reader.GetBoolean(3)
                         });
-                        
                     }
                 }
                 
             }
-            return tbUsers;
-            //return new List<tbUser> {
-            //    new tbUser() { UserId = 1, LoginName = "mark@eoh.co.za", Name= "Mark", IsActive=true },
-            //    new tbUser() { UserId = 2, LoginName = "adriaan@eoh.co.za", Name= "Adriaan" , IsActive=true},
-            //};
+            return users;
         }
 
-        public tbUser GetUser(int userId)
+        public User GetUser(int userId)
         {
-            return new tbUser() { UserId = 1, LoginName = "mark@eoh.co.za", Name = "Mark", IsActive = true };
-                
+            return new User() { Id = 1, LoginName = "mark@eoh.co.za", Name = "Mark", IsActive = true };
         }
 
-        public List<tbRole> GetUserRoles(int userId)
+        public List<Role> GetUserRoles(int userId)
         {
-            List<tbRole> tbRoles = new List<tbRole>();
+            List<Role> roles = new List<Role>();
 
             using (SqlConnection cnn = new SqlConnection(CONNECTION_STRING))
             {
@@ -80,23 +70,15 @@ namespace PVP.DAL
                 {
                     while (reader.Read())
                     {
-                        tbRoles.Add(new tbRole()
+                        roles.Add(new Role()
                         {
-                            RoleId = reader.GetInt32(0),
+                            Id = reader.GetInt32(0),
                             Description = reader.GetString(1)
                         });
-
                     }
                 }
-
-                
             }
-            return tbRoles;
-
-            //return new List<tbRole> {
-            //    new tbRole() { RoleId = 1, Description = "User"},
-            //    new tbRole() { RoleId = 2, Description = "Administrator"},
-            //};
+            return roles;
         }
     }
 }

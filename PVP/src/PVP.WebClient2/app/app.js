@@ -2,7 +2,7 @@
 
     'use strict';
 
-    angular.module('pvpdemo', [
+    var app = angular.module('pvpdemo', [
         'ngRoute'
     ]);
 

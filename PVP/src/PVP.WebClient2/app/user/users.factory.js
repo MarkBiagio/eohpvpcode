@@ -5,26 +5,27 @@
    
     function UsersFactory($q, $http) {
         
+        var cachedUsers = [];
+        
         var getUsers = function () {
-            var deferred = $q.defer();
+            if (cachedUsers.length != 0) return $q.when(cachedUsers);
 
-            var getDataComplete = function (response) {
-                deferred.resolve(response.data);
-            };
-
-            var getDataError = function (err, status) {
-                status = status;
-
-                deferred.reject(err);
-            };
-
-            $http.get(baseUrl + '/users').then(getDataComplete, getDataError);
-
-            return deferred.promise;
+            return $http.get(baseUrl + '/users').then(function (response) {
+                return response.data;
+            });
+        };
+        
+        var getUser = function (id) {
+            return getUsers().then(function (users) {
+                for (var user of users) {
+                    if (user.id == id) return user;
+                }
+            });
         };
 
         return {
-            getUsers: getUsers
+            getUsers: getUsers,
+            getUser: getUser
         };
     }
 

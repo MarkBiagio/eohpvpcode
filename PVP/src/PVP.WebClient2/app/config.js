@@ -19,7 +19,7 @@
             })
 
             // route for the contact page
-            .when('/user', {
+            .when('/user/:id', {
                 templateUrl: 'app/user/user.view.html',
                 controller: 'UserController',
                 controllerAs: 'vm'

@@ -5,50 +5,14 @@ using System.Threading.Tasks;
 
 namespace PVP.DomainModel
 {
-     public class User
+     public class User : Entity
     {
-        public User()
-        {
-        }
-
-        private int userId;
-        private string loginName;
-        private string name;
-        private bool isActive;
+        public string LoginName { get; set; }
         
-        public int UserId
-        {
-            get { return userId; }
-            set { userId = value; }
-        }
+        public string Name { get; set; }
         
-        public string LoginName
-        {
-            get { return loginName; }
-            set { loginName = value; }
-        }
-
+        public bool IsActive { get; set; }
         
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        
-        public bool IsActive
-        {
-            get { return isActive; }
-            set { isActive = value; }
-        }
-
-        private List<Role> roles;
-
-        public List<Role> Roles
-        {
-            get { return roles; }
-            set { roles = value; }
-        }
-
+        public List<Role> Roles { get; set; }
     }
 }

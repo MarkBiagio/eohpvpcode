@@ -5,22 +5,8 @@ using System.Threading.Tasks;
 
 namespace PVP.DomainModel
 {
-    public class Role
+    public class Role : Entity
     {
-        private int roleId;
-
-        public int RoleId
-        {
-            get { return roleId; }
-            set { roleId = value; }
-        }
-        private string description;
-
-        public string Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
-
+        public string Description { get; set; }
     }
 }
