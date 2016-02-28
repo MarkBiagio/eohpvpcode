@@ -13,7 +13,6 @@ namespace PVP.DAL.Converter
         {
             User u = new User()
             {
-                UserId = tb_user.UserId,
                 LoginName = tb_user.LoginName,
                 Name = tb_user.Name,
                 IsActive = tb_user.IsActive,
@@ -31,7 +30,7 @@ namespace PVP.DAL.Converter
 
         public static Role CreateRoleFromtbRole(tbRole tb_role)
         {
-            return new Role() { RoleId = tb_role.RoleId, Description = tb_role.Description };
+            return new Role() { Description = tb_role.Description };
         }
     }
 }

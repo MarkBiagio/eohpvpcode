@@ -11,17 +11,11 @@ namespace PVP.DomainModel
         {
         }
 
-        private int userId;
         private string loginName;
         private string name;
         private bool isActive;
         
-        public int UserId
-        {
-            get { return userId; }
-            set { userId = value; }
-        }
-        
+                
         public string LoginName
         {
             get { return loginName; }

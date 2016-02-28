@@ -12,6 +12,7 @@
 
   "dependencies": {
     "Newtonsoft.Json": "8.0.2",
+    "PVP. Mongo": "1.0.0-*",
     "PVP.DomainModel": "1.0.0-*"
   },
 
@@ -22,7 +23,7 @@
   "frameworks": {
     "dnx451": {
       "dependencies": {
-        "PVP. Mongo": "1.0.0-*"
+      
       }
     }
   }
