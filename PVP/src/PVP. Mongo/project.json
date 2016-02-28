@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "description": "PVP. Mongo Class Library",
+  "authors": [ "Admin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "MongoDB.Driver": "2.2.3",
+        "MongoDB.Driver.Core": "2.2.3",
+        "PVP.DomainModel": "1.0.0-*"
+      }
+    }
+  }
+}
