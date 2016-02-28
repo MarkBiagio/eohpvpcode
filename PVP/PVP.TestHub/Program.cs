@@ -23,7 +23,7 @@ namespace PVP.TestHub
                 string json = JsonConvert.SerializeObject(list);
                 Console.WriteLine(json);
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
