@@ -11,19 +11,5 @@ namespace PVP.BLL
         public UserBLL()
         {
         }
-
-        public List<User> GetUsers(){
-            PVP.DAL.UserService srv = new DAL.UserService();
-            return srv.GetUsers();
-            
-        }
-
-        public User GetUser(int userId)
-        {
-            PVP.DAL.UserService srv = new DAL.UserService();
-            return srv.GetUser(userId);
-   
-           
-        }
     }
 }
