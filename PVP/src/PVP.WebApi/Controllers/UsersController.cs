@@ -31,5 +31,15 @@ namespace PVP.WebApi.Controllers
             return _repository.GetUser(id);
         }
 
+        [HttpPost("{userId}")]
+        public void MakeUserAdministrator(int userId)
+        {
+            var user = _repository.GetUser(userId);
+            var adminRole = _repository.GetRole(SystemRole.Administrator);
+
+            user.RemoveAllRoles();
+            user.AddRole(adminRole);
+            _repository.Save(user);
+        }
     }
 }
