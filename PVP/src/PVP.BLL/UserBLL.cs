@@ -3,27 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PVP.DAL;
 
 namespace PVP.BLL
 {
     public class UserBLL
     {
-        public UserBLL()
+        UserRepository _repository;
+
+        public UserBLL(UserRepository repository)
         {
+            _repository = repository;
         }
 
-        public List<User> GetUsers(){
-            PVP.DAL.UserService srv = new DAL.UserService();
-            return srv.GetUsers();
-            
-        }
-
-        public User GetUser(int userId)
+        public void MakeUserAdministrator(int userId)
         {
-            PVP.DAL.UserService srv = new DAL.UserService();
-            return srv.GetUser(userId);
-   
-           
+            var user = _repository.GetUser(userId);
+            var adminRole = _repository.GetRole(SystemRole.Administrator);
+
+            user.RemoveAllRoles();
+            user.AddRole(adminRole);
+            _repository.Save(user);
         }
     }
 }
