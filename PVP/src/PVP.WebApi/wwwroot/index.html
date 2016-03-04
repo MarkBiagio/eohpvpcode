@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html  ng-app="pvpdemo" >
+<html>
 <head>
     <title>pvp demo</title>
 	<meta charset="utf-8" />
+    
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://raw.github.com/leonidas/transparency/master/dist/transparency.min.js"></script>
 </head>
 <body>
-  
-    <div ng-view style="height: 100%;"></div>
+  <div>
+   
+    <ul id="users">
+        <li data-bind="Name"></li>
+    </ul>
 
-    <script src="scripts/angular.js"></script>
-    <script src="scripts/angular-route.js"></script>
+</div>
 
-    <script src="app/app.js"></script>
-    <script src="app/config.js"></script>
-    
-    <script src="app/home/home.controller.js"></script>
-    <script src="app/user/users.controller.js"></script>
-    <script src="app/user/user.controller.js"></script>
-    <script src="app/user/users.service.js"></script>
-    <script src="app/user/users.factory.js"></script>
-
+<script lang="javascript">
+    $(function() {
+        $.get('/users').done(function(data) {
+            $("#users").render(data);
+        });
+    });
+</script>
 </body>
 </html>
