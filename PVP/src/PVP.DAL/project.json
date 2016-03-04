@@ -24,6 +24,7 @@
     }
   },
   "dependencies": {
-    "PVP.DomainModel": "1.0.0-*"
+    "PVP.DomainModel": "1.0.0-*",
+     "Simple.Data.SqlServer": "2.0.0-alpha1"
   }
 }
