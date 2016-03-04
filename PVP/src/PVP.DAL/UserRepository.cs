@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PVP.DAL.DBModel;
+using PVP.DAL.Converter;
 using System.Data.SqlClient;
 
 namespace PVP.DAL
@@ -21,6 +22,19 @@ namespace PVP.DAL
         }
 
         public List<tbUser> GetUsers()
+        {
+            return GetDbUsers();
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return GetDbUsers()
+            .Select(tbu => Converter.UserConverter.CreateUserFromtbUser(tbu, GetUserRoles(tbu.UserId)))
+            .ToList();
+
+        }
+
+        private List<tbUser> GetDbUsers() 
         {
             List<tbUser> tbUsers = new List<tbUser>();
 
@@ -49,16 +63,27 @@ namespace PVP.DAL
                 
             }
             return tbUsers;
-            //return new List<tbUser> {
-            //    new tbUser() { UserId = 1, LoginName = "mark@eoh.co.za", Name= "Mark", IsActive=true },
-            //    new tbUser() { UserId = 2, LoginName = "adriaan@eoh.co.za", Name= "Adriaan" , IsActive=true},
-            //};
+        }
+
+        public void Save(User user)
+        {
+            //TODO: persist user
+        }
+
+        public Role GetRole(SystemRole role)
+        {
+            return new Role() { RoleId = (int)role, Description = role.ToString() };
         }
 
         public tbUser GetUser(int userId)
         {
             return new tbUser() { UserId = 1, LoginName = "mark@eoh.co.za", Name = "Mark", IsActive = true };
                 
+        }
+        
+        public User FindUser(int userId)
+        {
+            return new User() { UserId = userId, LoginName = "mark@eoh.co.za", Name = "Mark", IsActive = true };
         }
 
         public List<tbRole> GetUserRoles(int userId)

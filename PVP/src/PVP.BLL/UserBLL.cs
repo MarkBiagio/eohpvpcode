@@ -25,5 +25,17 @@ namespace PVP.BLL
    
            
         }
+
+        //Purist change 1
+        public void MakeUserAdministrator(int userId)
+        {
+            var repo = new DAL.UserRepository();
+            var user = repo.FindUser(userId);
+            var adminRole = repo.GetRole(SystemRole.Administrator);
+            
+            user.Roles.Clear();
+            user.AddRole(adminRole);
+            repo.Save(user);
+        }
     }
 }

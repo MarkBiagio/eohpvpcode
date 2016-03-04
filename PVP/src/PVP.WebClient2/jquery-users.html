@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pvp demo</title>
+	<meta charset="utf-8" />
+    
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://raw.github.com/leonidas/transparency/master/dist/transparency.min.js"></script>
+</head>
+<body>
+  <div>
+   
+    <ul id="users">
+        <li data-bind="Name"></li>
+    </ul>
+
+</div>
+
+<script lang="javascript">
+    $(function() {
+        $.get('/users').done(function(data) {
+            $("#users").render(data);
+        });
+    });
+</script>
+</body>
+</html>

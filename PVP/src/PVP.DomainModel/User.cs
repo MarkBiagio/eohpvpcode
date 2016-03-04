@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PVP.DomainModel
 {
-     public class User
+     public class   User
     {
         public User()
         {
@@ -50,5 +50,9 @@ namespace PVP.DomainModel
             set { roles = value; }
         }
 
+        public void AddRole(Role role)
+        {
+            roles.Add(role);
+        }
     }
 }
