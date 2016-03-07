@@ -10,10 +10,10 @@ namespace PVP.DAL
 {
     public class UserRepository
     {
-        private const string CONNECTION_STRING = "Data Source=tcp:ad16o7zdca.database.windows.net;" +
+        private const string CONNECTION_STRING = "Data Source=.;" +
                 "Initial Catalog=PVP.SQL;" +
                 "MultipleActiveResultSets=True;" +
-                "User Id=EOHStaging; Password=y@l3b123;";
+                "Integrated Security=SSPI;";
 
         public UserRepository()
         {
