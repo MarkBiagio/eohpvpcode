@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0-*",
+  "description": "PVP.TestHub Console Application",
+  "authors": [ "Admin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Newtonsoft.Json": "8.0.2",
+    "PVP. Mongo": "1.0.0-*",
+    "PVP.DomainModel": "1.0.0-*"
+  },
+
+  "commands": {
+    "PVP.TestHub": "PVP.TestHub"
+  },
+
+  "frameworks": {
+    "dnx451": {
+      "dependencies": {
+      
+      }
+    }
+  }
+}

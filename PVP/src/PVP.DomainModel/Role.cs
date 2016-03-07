@@ -7,13 +7,7 @@ namespace PVP.DomainModel
 {
     public class Role
     {
-        private int roleId;
-
-        public int RoleId
-        {
-            get { return roleId; }
-            set { roleId = value; }
-        }
+        
         private string description;
 
         public string Description
