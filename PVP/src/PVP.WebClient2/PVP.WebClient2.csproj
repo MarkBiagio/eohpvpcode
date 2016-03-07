@@ -103,20 +103,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.js" />
-    <Content Include="app\config.js" />
-    <Content Include="app\home\home.controller.js" />
-    <Content Include="app\home\home.view.html" />
     <Content Include="index.html" />
-    <Content Include="app\user\user.controller.js" />
-    <Content Include="app\user\user.view.html" />
-    <Content Include="app\user\users.controller.js" />
-    <Content Include="app\user\users.factory.js" />
-    <Content Include="app\user\users.service.js" />
-    <Content Include="app\user\users.view.html" />
     <Content Include="gulpfile.js" />
-    <Content Include="scripts\angular-route.js" />
-    <Content Include="scripts\angular.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
